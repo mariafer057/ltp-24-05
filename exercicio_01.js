@@ -9,24 +9,29 @@ class Animal {
     this.especie = especie;
   }
 
-  mostrarAtributos(){
-    return this.atributos();
-  } 
+  mostrarAtributos() {
+    try {
+      return this.atributos();
+    } catch (erro) {
+      console.log(erro.stack)
+    }
+  }
 
   atributos() {
-    return {
-      nome: this.nome,
-      idade: this.idade,
-      especie: this.especie
-    };
+   if(this.nome != "" && this.idade != "" && this.especie !=){
+   return this.nome + this.idade + this.especie
+  }
+  else{
+    throw new Error("Esta errado, falta nome ou sobrenome")
   }
 }
+
 
 const meuAnimal = new Animal("Fido", 3, "cachorro");
 const atributos = meuAnimal.mostrarAtributos();
 
-// Imprimindo os atributos
+/*Imprimindo os atributos
 console.log(atributos.nome);   
 console.log(atributos.idade);  
 console.log(atributos.especie); 
-
+*/
